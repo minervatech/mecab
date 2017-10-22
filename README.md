@@ -99,4 +99,7 @@ sudo rm -rf mecab/
 cd /usr/local/bin/
 sudo rm mecab
 sudo rm mecab-config
+
+cd  /usr/local/etc
+sudo rm mecabrc
 ```
