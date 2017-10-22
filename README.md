@@ -22,6 +22,8 @@ Mecab will be deployed to
 Then, compile dictionary. Use minerva/mecab as the original code have encoding problem.
 ```
 cd mecab/mecab-ipadic
+nkf -w --overwrite *.csv
+nkf -w --overwrite *.def
 ./configure --with-charset=utf8
 make
 sudo make install
@@ -66,7 +68,7 @@ pip install mecab-python
 import MeCab
  
 input = '10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。'
-tagger = MeCab.Tagger("-Ochasen -d /usr/lib/mecab/dic/ipadic/")
+tagger = MeCab.Tagger("-Ochasen -d /usr/local/lib/mecab/dic/ipadic/")
 tagger.parse('')
 node = tagger.parseToNode(input)
 while node:
@@ -80,10 +82,21 @@ while node:
 import MeCab
  
 input = '10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。'
-tagger = MeCab.Tagger("-Ochasen -d /usr/lib/mecab/dic/mecab-ipadic-neologd/")
+tagger = MeCab.Tagger("-Ochasen -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd/")
 tagger.parse('')
 node = tagger.parseToNode(input)
 while node:
     print (node.surface, node.feature)
     node = node.next
+```
+
+# Uninstall
+```
+cd /usr/local/lib
+sudo rm libmecab.*
+sudo rm -rf mecab/
+
+cd /usr/local/bin/
+sudo rm mecab
+sudo rm mecab-config
 ```
