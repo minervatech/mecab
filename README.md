@@ -54,3 +54,36 @@ echo "10日放送の「中居正広のミになる図書館」（テレビ朝日
 - mecab-ipadic-neologd
 
 echo "10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。" | mecab -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd
+
+# Python bindings
+```
+pip install mecab-python
+```
+
+## mecab-ipadic-neologd
+```
+# coding: utf-8
+import MeCab
+ 
+input = '10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。'
+tagger = MeCab.Tagger("-Ochasen -d /usr/lib/mecab/dic/ipadic/")
+tagger.parse('')
+node = tagger.parseToNode(input)
+while node:
+    print (node.surface, node.feature)
+    node = node.next
+```
+
+## mecab-ipadic-neologd
+```
+# coding: utf-8
+import MeCab
+ 
+input = '10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。'
+tagger = MeCab.Tagger("-Ochasen -d /usr/lib/mecab/dic/mecab-ipadic-neologd/")
+tagger.parse('')
+node = tagger.parseToNode(input)
+while node:
+    print (node.surface, node.feature)
+    node = node.next
+```
