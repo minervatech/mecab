@@ -7,7 +7,7 @@ EXTRA_DIST = @MECAB_LEXICAL_DIC@ @MECAB_PREDATA@ RESULT
 CLEANFILES = @MECAB_GENDATA@
 
 @MECAB_GENDATA@:
-	$(mecab_dict_index) -d . -o . -f EUC-JP -t @CHARSET@
+	$(mecab_dict_index) -d . -o . -f utf8 -t @CHARSET@
 	echo To enable dictionary, rewrite @MECAB_MECABRC@ as \"dicrc = @MECAB_DICDIR@\"
 
 rpm: dist
