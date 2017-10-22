@@ -31,11 +31,11 @@ sudo ldconfig
 # Custom dictionary
 Add arbitrary CSV file below mecab/mecab-ipadic and re-build dictionary
 ```
-vim mecab/mecab-ipadic/Noun.new.csv
+cd mecab/mecab-ipadic
+vim Noun.new.csv
 make clean
 make
 sudo make install
-sudo mv /usr/local/lib/mecab/dic/ipadic /usr/local/lib/mecab/dic/ipadic_default
 ```
 
 # Use mecab-ipadic-neologd
