@@ -35,4 +35,5 @@ vim mecab/mecab-ipadic/Noun.new.csv
 make clean
 make
 sudo make install
+sudo mv /usr/local/lib/mecab/dic/ipadic /usr/local/lib/mecab/dic/ipadic_default
 ```
